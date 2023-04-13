@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Flat Price Estimator</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="style.css">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Estimate for an Apartment in Lyon</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="app.py" "method="post">
+
+    	<input type="text" name="area" placeholder="Area" required="required" />
+      
+      <div>
+        <p>Balcony :</p>
+        <input type="radio" name="balcony" id="balcony"  required="required" value="1"/>
+        <label for="balcony">Yes</label>
+        <input type="radio" name="balcony" id="no_balcony"  required="required" value="0"/>
+        <label for="no_balcony">No</label>
+     </div>
+   
+     <div>
+      <p>Terrace :</p>
+      <input type="radio" name="terrace" id="terrace"  required="required" value="1"/>
+      <label for="terrace">Yes</label>
+      <input type="radio" name="terrace" id="no_terrace"  required="required" value="0"/>
+      <label for="no_terrace">No</label>
+    </div>
+
+    <div>
+      <p>Garden :</p>
+      <input type="radio" name="garden" id="garden"  required="required" value="1"/>
+      <label for="garden">Yes</label>
+      <input type="radio" name="garden" id="no_garden"  required="required" value="0"/>
+      <label for="no_garden">No</label>
+    </div>
+
+    <div>
+      <p>Garage :</p>
+      <input type="radio" name="garage" id="garage"  required="required" value="1"/>
+      <label for="garage">Yes</label>
+      <input type="radio" name="garage" id="no_garage"  required="required" value="0"/>
+      <label for="no_garage">No</label>
+    </div>
+
+    <div>
+      <p>Parking Spot :</p>
+      <input type="radio" name="parking_spot" id="parking_spot" required="required" value="1"/>
+      <label for="parking_spot">Yes</label>
+      <input type="radio" name="parking_spot" id="no_parking_spot"  required="required" value="0"/>
+      <label for="no_parking_spot">No</label>
+    </div>
+
+    <div>
+      <p>New Flat :</p>
+      <input type="radio" name="new" id="new" required="required" value="1"/>
+      <label for="new">Yes</label>
+      <input type="radio" name="parking_spot" id="no_new"  required="required" value="0"/>
+      <label for="no_new">No</label>
+    </div>
+		
+      <div>
+        <p>District :</p>
+        <select name="'district">
+          <option value="0">Bellecour-Ainay</option>
+          <option value="1">Champvert-Point du Jour-Saint Irénée</option>
+          <option value="2">Cordeliers-Célestins-Bourse</option>
+          <option value="3">Croix Paquet</option>
+          <option value="4">Croix Rousse-Centre</option>
+          <option value="5">Croix Rousse-Gros Caillou</option>
+          <option value="6">Fourvière-Saint Just</option>
+          <option value="7">Gerland</option>
+          <option value="8">Gorge du Loup-Champvert</option>
+          <option value="9">Jean Macé</option>
+          <option value="10">La Duchère</option>
+          <option value="11">La Guillotière Nord</option>
+          <option value="12">La Guillotière Sud</option>
+          <option value="13">La Plaine</option>
+          <option value="14">Laënnec-Mermoz</option>
+          <option value="15">Le Grand Trou</option>
+          <option value="16">Les Brotteaux-Bellecombe-Masséna</option>
+          <option value="17">Monplaisir-Le Bachut</option>
+          <option value="18">Montchat</option>
+          <option value="19">Part Dieu</option>
+          <option value="21">Perrache-Le Confluent</option>
+          <option value="22">Plateau de la Croix Rousse-Ouest</option>
+          <option value="23">Plateau de la Croix Rousse-Saône</option>
+          <option value="24">Point du Jour-Ménival</option>
+          <option value="25">Saint Rambert</option>
+          <option value="26">Saint Vincent</option>
+          <option value="27">Sans Souci-Dauphiné</option>
+          <option value="28">Terreaux</option>
+          <option value="29">Transvaal</option>
+          <option value="30">Tête d'Or-Foch-Vitton</option>
+          <option value="31">Vaise-Rochecardon-Industrie</option>
+          <option value="32">Vieux Lyon</option>
+          <option value="33">Villette</option>
+          <option value="34">États-Unis</option>
+        </select>
+      </div>
+
+      <div>
+        <p>Number of Rooms :</p>
+        <select name="'rooms">
+          <option value="0">1</option>
+          <option value="1">2</option>
+          <option value="2">3</option>
+          <option value="3">4</option>
+          <option value="4">5</option>
+          <option value="5">6</option>
+          <option value="6">7</option>
+          <option value="7">8</option>
+          <option value="8">9</option>
+        </select>
+      </div>
+  
+      <div>
+        <p>Floor :</p>
+        <input type="radio" name="floor" id="ground_floor" required="required" value="0"/>
+        <label for="ground_floor">Ground Floor</label>
+        <input type="radio" name="floor" id="last_floor"  required="required" value="1"/>
+        <label for="last_floor">Last Floor</label>
+        <input type="radio" name="floor" id="other_floor"  required="required" value="2"/>
+        <label for="other_floor">Other</label>
+      </div>
+
+        <input type="submit" class="btn btn-primary btn-block btn-large">Estimate</input>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
