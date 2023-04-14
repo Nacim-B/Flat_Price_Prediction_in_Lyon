@@ -39,7 +39,7 @@ def predict():
     list_district[district_number] = 1
     list_features = np.append(list_features, list_district)
 
-    list_rooms = [0] * 9
+    list_rooms = [0] * 11
     rooms_number = int(request.form.get('rooms'))
     list_rooms[rooms_number] = 1
     list_features = np.append(list_features, list_rooms)
@@ -55,7 +55,7 @@ def predict():
 
     output = round(prediction[0], 0)
 
-    return render_template('index.html', prediction_text='Employee Salary should be $ {}'.format(output))
+    return render_template('index.html', prediction_text='The Price of your flat should be around {} €'.format(output))
 
 
 if __name__ == "__main__":

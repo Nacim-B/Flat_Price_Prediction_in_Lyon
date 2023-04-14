@@ -3,7 +3,7 @@
 <!--From https://codepen.io/frytyler/pen/EGdtg-->
 <head>
   <meta charset="UTF-8">
-  <title>ML API</title>
+  <title>Lyon Flat Estimator</title>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
@@ -13,73 +13,89 @@
 </head>
 
 <body>
+  <h1>Estimate the price of your Falt in Lyon </h1>
  <div class="login">
-	<h1>Predict Salary Analysis</h1>
+	
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="area" placeholder="Area" required="required" />
+  
+      <p>Area :</p>
+      
+    	<input type="text" name="area"  value="25" required="required" />
       
       <div>
         <p>Balcony :</p>
-        <input type="radio" name="balcony" id="balcony"  required="required" value="1"/>
         <label for="balcony">Yes</label>
-        <input type="radio" name="balcony" id="no_balcony"  required="required" value="0"/>
+        <input type="radio" name="balcony" id="balcony"  required="required" value="1"/>
+        
         <label for="no_balcony">No</label>
+        <input type="radio" name="balcony" id="no_balcony"  required="required" value="0" checked/>
+        
       </div>
 
       <div>
         <p>Elevator :</p>
-        <input type="radio" name="elevator" id="elevator"  required="required" value="1"/>
         <label for="elevator">Yes</label>
-        <input type="radio" name="elevator" id="no_elevator"  required="required" value="0"/>
+        <input type="radio" name="elevator" id="elevator"  required="required" value="1"/>
+        
         <label for="no_elevator">No</label>
+        <input type="radio" name="elevator" id="no_elevator"  required="required" value="0" checked/>
+        
       </div>
    
       <div>
         <p>Terrace :</p>
-        <input type="radio" name="terrace" id="terrace"  required="required" value="1"/>
         <label for="terrace">Yes</label>
-        <input type="radio" name="terrace" id="no_terrace"  required="required" value="0"/>
+        <input type="radio" name="terrace" id="terrace"  required="required" value="1"/>
+        
         <label for="no_terrace">No</label>
+        <input type="radio" name="terrace" id="no_terrace"  required="required" value="0" checked/>
+        
       </div>
 
       <div>
         <p>Garden :</p>
-        <input type="radio" name="garden" id="garden"  required="required" value="1"/>
         <label for="garden">Yes</label>
-        <input type="radio" name="garden" id="no_garden"  required="required" value="0"/>
+        <input type="radio" name="garden" id="garden"  required="required" value="1"/>
+        
         <label for="no_garden">No</label>
+        <input type="radio" name="garden" id="no_garden"  required="required" value="0" checked/>
+        
       </div>
 
       <div>
         <p>Garage :</p>
-        <input type="radio" name="garage" id="garage"  required="required" value="1"/>
         <label for="garage">Yes</label>
-        <input type="radio" name="garage" id="no_garage"  required="required" value="0"/>
+        <input type="radio" name="garage" id="garage"  required="required" value="1"/>
+        
         <label for="no_garage">No</label>
+        <input type="radio" name="garage" id="no_garage"  required="required" value="0" checked/>
+        
       </div>
 
       <div>
         <p>Parking Spot :</p>
-        <input type="radio" name="parking_spot" id="parking_spot" required="required" value="1"/>
         <label for="parking_spot">Yes</label>
-        <input type="radio" name="parking_spot" id="no_parking_spot"  required="required" value="0"/>
+        <input type="radio" name="parking_spot" id="parking_spot" required="required" value="1"/>
         <label for="no_parking_spot">No</label>
+        <input type="radio" name="parking_spot" id="no_parking_spot"  required="required" value="0" checked/>
       </div>
 
+   
       <div>
         <p>New Flat :</p>
-        <input type="radio" name="new" id="new" required="required" value="1"/>
         <label for="new">Yes</label>
-        <input type="radio" name="new" id="no_new"  required="required" value="0"/>
+        <input type="radio" name="new" id="new" required="required" value="1"/>
         <label for="no_new">No</label>
+        <input type="radio" name="new" id="no_new"  required="required" value="0" checked/>
+        
       </div>
 		
       <div>
         <p>District :</p>
         <select name='district' id = 'district'>
-          <option value="0">Bellecour-Ainay</option>
+          <option value="0" selected>Bellecour-Ainay</option>
           <option value="1">Champvert-Point du Jour-Saint Irénée</option>
           <option value="2">Cordeliers-Célestins-Bourse</option>
           <option value="3">Croix Paquet</option>
@@ -119,28 +135,31 @@
       <div>
         <p>Number of Rooms :</p>
         <select name="rooms">
-          <option value="0">1</option>
-          <option value="1">2</option>
-          <option value="2">3</option>
-          <option value="3">4</option>
-          <option value="4">5</option>
-          <option value="5">6</option>
-          <option value="6">7</option>
-          <option value="7">8</option>
-          <option value="8">9</option>
+          <option value="0" selected>1</option>
+          <option value="3">2</option>
+          <option value="4">3</option>
+          <option value="5">4</option>
+          <option value="6">5</option>
+          <option value="7">6</option>
+          <option value="8">7</option>
+          <option value="9">8</option>
+          <option value="10">9</option>
+          <option value="1">10</option>
+          <option value="2">11</option>
         </select>
       </div>
 
       <div>
         <p>Floor :</p>
-        <input type="radio" name="floor" id="gr_floor" required="required" value="0"/>
         <label for="gr_floor">Ground Floor</label>
-        <input type="radio" name="floor" id="ls_floor"  required="required" value="1"/>
+        <input type="radio" name="floor" id="gr_floor" required="required" value="0" checked/>
         <label for="ls_floor">Last Floor</label>
-        <input type="radio" name="floor" id="other_floor"  required="required" value="2"/>
+        <input type="radio" name="floor" id="ls_floor"  required="required" value="1"/>
         <label for="other_floor">Other</label>
+        <input type="radio" name="floor" id="other_floor"  required="required" value="2"/>
+        
       </div>
-
+    
 
       <button type="submit" class="btn btn-primary btn-block btn-large">Estimate</button>
     </form>
