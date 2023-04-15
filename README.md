@@ -1,7 +1,9 @@
 How to use the estimator:
 
-- Lauch the python app: 'python app.py'
+- Lauch the python app in your terminal: 'python app.py'
 
-- Open the html file in the templates folder
+- Copy the address shown after "Running on"
+
+- Paste it in your web browser
 
 - Estimate your flat !
