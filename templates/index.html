@@ -1,99 +1,98 @@
 <!DOCTYPE html>
 <html >
-<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
 <head>
   <meta charset="UTF-8">
-  <title>Lyon Flat Estimator</title>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  
+  <title>Estimateur Immobilier</title>    
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">  
 </head>
 
 <body>
-  <h1>Estimate the price of your Falt in Lyon </h1>
- <div class="login">
-	
+     
+    <form action="{ url_for('predict')}"method="post">
 
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
-  
-      <p>Area :</p>
-      
-    	<input type="text" name="area"  value="25" required="required" />
-      
-      <div>
-        <p>Balcony :</p>
-        <label for="balcony">Yes</label>
-        <input type="radio" name="balcony" id="balcony"  required="required" value="1"/>
-        
-        <label for="no_balcony">No</label>
-        <input type="radio" name="balcony" id="no_balcony"  required="required" value="0" checked/>
-        
-      </div>
+      <h1>Estimation de votre appartment sur Lyon :</h1>
 
-      <div>
-        <p>Elevator :</p>
-        <label for="elevator">Yes</label>
-        <input type="radio" name="elevator" id="elevator"  required="required" value="1"/>
+      <div class="seperator"></div>
+
+      <div class="body_form">
+
+      <div class="left">
+
+        <div class="box">
+          <p>Superficie :</p>
+          <input type="number" name="area"  value="25" required="required" />
+        </div>
         
-        <label for="no_elevator">No</label>
-        <input type="radio" name="elevator" id="no_elevator"  required="required" value="0" checked/>
-        
-      </div>
+        <div class="box">
+          <p>Balcon :</p>
+          <label for="balcony">Oui</label>
+          <input type="radio" name="balcony" id="balcony"  required="required" value="1"/>
+          <label for="no_balcony">Non</label>
+          <input type="radio" name="balcony" id="no_balcony"  required="required" value="0" checked/>
+        </div>
+
+        <div class="box">
+          <p>Ascenseur :</p>
+          <label for="elevator">Oui</label>
+          <input type="radio" name="elevator" id="elevator"  required="required" value="1"/>
+          <label for="no_elevator">Non</label>
+          <input type="radio" name="elevator" id="no_elevator"  required="required" value="0" checked/>
+        </div>
    
-      <div>
-        <p>Terrace :</p>
-        <label for="terrace">Yes</label>
-        <input type="radio" name="terrace" id="terrace"  required="required" value="1"/>
-        
-        <label for="no_terrace">No</label>
-        <input type="radio" name="terrace" id="no_terrace"  required="required" value="0" checked/>
-        
-      </div>
+        <div class="box">
+          <p>Terrasse :</p>
+          <label for="terrace">Oui</label>
+          <input type="radio" name="terrace" id="terrace"  required="required" value="1"/>
+          
+          <label for="no_terrace">Non</label>
+          <input type="radio" name="terrace" id="no_terrace"  required="required" value="0" checked/>
+        </div>
 
-      <div>
-        <p>Garden :</p>
-        <label for="garden">Yes</label>
-        <input type="radio" name="garden" id="garden"  required="required" value="1"/>
-        
-        <label for="no_garden">No</label>
-        <input type="radio" name="garden" id="no_garden"  required="required" value="0" checked/>
-        
-      </div>
+        <div class="box">
+          <p>Jardin :</p>
+          <label for="garden">Oui</label>
+          <input type="radio" name="garden" id="garden"  required="required" value="1"/>
+          
+          <label for="no_garden">Non</label>
+          <input type="radio" name="garden" id="no_garden"  required="required" value="0" checked/>
+        </div>
 
-      <div>
-        <p>Garage :</p>
-        <label for="garage">Yes</label>
-        <input type="radio" name="garage" id="garage"  required="required" value="1"/>
-        
-        <label for="no_garage">No</label>
-        <input type="radio" name="garage" id="no_garage"  required="required" value="0" checked/>
-        
-      </div>
+        <div class="box">
+          <p>Garage / Box :</p>
+          <label for="garage">Oui</label>
+          <input type="radio" name="garage" id="garage"  required="required" value="1"/>
+          
+          <label for="no_garage">Non</label>
+          <input type="radio" name="garage" id="no_garage"  required="required" value="0" checked/>
+        </div>
 
-      <div>
-        <p>Parking Spot :</p>
-        <label for="parking_spot">Yes</label>
-        <input type="radio" name="parking_spot" id="parking_spot" required="required" value="1"/>
-        <label for="no_parking_spot">No</label>
-        <input type="radio" name="parking_spot" id="no_parking_spot"  required="required" value="0" checked/>
-      </div>
+        </div>
+        <div class="seperator2"></div>
+        <div class="right">
 
-   
-      <div>
-        <p>New Flat :</p>
-        <label for="new">Yes</label>
+        <div class="box">
+          <p>Place de parking :</p>
+          <label for="parking_spot">Oui</label>
+          <input type="radio" name="parking_spot" id="parking_spot" required="required" value="1"/>
+          <label for="no_parking_spot">Non</label>
+          <input type="radio" name="parking_spot" id="no_parking_spot"  required="required" value="0" checked/>
+        </div>
+    
+
+
+    
+      
+      <div class="box">
+        <p>Appartement neuf :</p>
+        <label for="new">Oui</label>
         <input type="radio" name="new" id="new" required="required" value="1"/>
-        <label for="no_new">No</label>
+        <label for="no_new">Non</label>
         <input type="radio" name="new" id="no_new"  required="required" value="0" checked/>
-        
       </div>
 		
-      <div>
-        <p>District :</p>
+      <div class="box">
+        <p>Quartier :</p>
         <select name='district' id = 'district'>
           <option value="0" selected>Bellecour-Ainay</option>
           <option value="1">Champvert-Point du Jour-Saint Irénée</option>
@@ -132,8 +131,8 @@
         </select>
       </div>
 
-      <div>
-        <p>Number of Rooms :</p>
+      <div class="box">
+        <p>Nombre de pièces :</p>
         <select name="rooms">
           <option value="0" selected>1</option>
           <option value="3">2</option>
@@ -149,26 +148,32 @@
         </select>
       </div>
 
-      <div>
-        <p>Floor :</p>
-        <label for="gr_floor">Ground Floor</label>
+      <div class="box">
+        <div >
+        <p>Étage :</p>
+        <span>
+        <label for="gr_floor">Rez-de-chaussée</label>
         <input type="radio" name="floor" id="gr_floor" required="required" value="0" checked/>
-        <label for="ls_floor">Last Floor</label>
+      </span>
+        <label for="ls_floor">Dernier étage</label>
         <input type="radio" name="floor" id="ls_floor"  required="required" value="1"/>
-        <label for="other_floor">Other</label>
-        <input type="radio" name="floor" id="other_floor"  required="required" value="2"/>
-        
+        <label for="other_floor">Autre</label>
+        <input type="radio" name="floor" id="other_floor"  required="required" value="2"/> 
       </div>
+    </div>
     
+    </div>
+    </div>
 
-      <button type="submit" class="btn btn-primary btn-block btn-large">Estimate</button>
+    <div class="footer" align="center">
+      <button type="submit" class="btn btn-primary btn-block btn-large">Lancer l'estimation</button>
+    </div>
+
     </form>
 
    <br>
    <br>
    {{ prediction_text }}
-
- </div>
 
 
 </body>

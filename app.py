@@ -55,7 +55,7 @@ def predict():
 
     output = round(prediction[0], 0)
 
-    return render_template('index.html', prediction_text='The Price of your flat should be around {} €'.format(output))
+    return render_template('index.html', prediction_text='Le prix de votre appartement est estimé à {} €.'.format(output))
 
 
 if __name__ == "__main__":
