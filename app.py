@@ -53,7 +53,7 @@ def predict():
 
     prediction = model.predict(list_features)
 
-    output = round(prediction[0], 0)
+    output = int(prediction[0])
 
     return render_template('index.html', prediction_text='Le prix de votre appartement est estimé à {} €.'.format(output))
 
