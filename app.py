@@ -32,7 +32,7 @@ def predict():
     list_features = np.append(list_features, request.form.get('parking_spot'))
     list_features = np.append(list_features, request.form.get('new'))
 
-    list_district = [0] * 34
+    list_district = [0] * 36
 
     district_number = int(request.form.get('district'))
 
